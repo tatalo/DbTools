@@ -11,7 +11,7 @@ import net.sf.jsqlparser.statement.select.SetOperationList
 
 import java.sql.DriverManager
 
-class QueryRewNewService {
+class QueryNewService {
 
     private final String MSSQL_DRIVER = 'com.microsoft.sqlserver.jdbc.SQLServerDriver'
     private final String ORACLE_DRIVER = 'oracle.jdbc.OracleDriver'
@@ -21,22 +21,12 @@ class QueryRewNewService {
 
     Sql cancelSql
 
-    /***
-     * 參數初始化
-     * @param params
-     * @return
-     */
     ExecInfoObject execInfoObjectInit(params) {
         ExecInfoObject execInfoObject = new ExecInfoObject()
         execInfoObject.setParams(params)
         return execInfoObject
     }
 
-    /***
-     * 執行
-     * @param params
-     * @return
-     */
     def execute(ExecInfoObject execInfoObject) {
         def result = [:]
         def execScript = execInfoObject.decodeExecTextArea()
